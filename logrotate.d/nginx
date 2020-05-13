@@ -1,0 +1,16 @@
+/usr/local/apisix/logs/*.log {
+    su root root
+    daily
+    dateext
+    rotate 7
+    maxage 7
+    olddir archive
+    missingok
+    nocreate
+    sharedscripts
+    postrotate
+        if [ -f /usr/local/apisix/logs/nginx.pid ]; then
+            kill -USR1 `cat /usr/local/apisix/logs/nginx.pid`
+        fi
+    endscript
+}

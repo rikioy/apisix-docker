@@ -1,0 +1,1 @@
+55 23 * * * /usr/bin/mkdir -p /usr/local/apisix/logs/archive && /usr/sbin/logrotate -v -f /etc/logrotate.conf
