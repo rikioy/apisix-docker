@@ -14,4 +14,4 @@ WORKDIR /usr/local/apisix
 
 EXPOSE 9080 9090 9443
 
-CMD ["sh", "-c", "/usr/bin/chmod 0444 /etc/logrotate.d/nginx && /usr/sbin/crond && /usr/local/openresty/luajit/bin/apisix init && /usr/local/openresty/bin/openresty -p /usr/local/apisix -g 'daemon off;'"]
+CMD ["sh", "-c", "/usr/bin/chmod 0444 /etc/logrotate.d/nginx && /usr/sbin/crond && /usr/local/openresty/luajit/bin/apisix init && /usr/local/openresty/luajit/bin/apisix init_etcd && /usr/local/openresty/bin/openresty -p /usr/local/apisix -g 'daemon off;'"]
