@@ -17,18 +17,16 @@
 
 local _M = {
     version = 0.1,
-    profile = os.getenv("APISIX_PROFILE"),
-    apisix_home = (ngx and ngx.config.prefix()) or ""
+    profile = os.getenv('APISIX_PROFILE'),
+    apisix_home = (ngx and ngx.config.prefix()) or ''
 }
 
-
 function _M.yaml_path(self, file_name)
-    local file_path = self.apisix_home  .. "apisix/" .. file_name
+    local file_path = self.apisix_home .. 'apisix_conf/' .. file_name
     if self.profile then
-        file_path = file_path .. "-" .. self.profile
+        file_path = file_path .. '-' .. self.profile
     end
-    return file_path .. ".yaml"
+    return file_path .. '.yaml'
 end
-
 
 return _M
